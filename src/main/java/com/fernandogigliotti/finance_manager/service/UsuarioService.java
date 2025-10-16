@@ -34,4 +34,11 @@ public class UsuarioService {
     public void deletar(Long id) {
         usuarioRepository.deleteById(id);
     }
+
+    public Usuario autenticar(String email, String senha) {
+        return usuarioRepository.findAll().stream()
+                .filter(u -> u.getEmail().equals(email) && u.getSenha().equals(senha))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Email ou senha inválidos"));
+    }
 }
