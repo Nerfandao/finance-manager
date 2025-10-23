@@ -1,7 +1,14 @@
 package com.fernandogigliotti.finance_manager.controller;
 
 import com.fernandogigliotti.finance_manager.model.Despesa;
+import com.fernandogigliotti.finance_manager.model.Usuario;
+import com.fernandogigliotti.finance_manager.repository.DespesaRepository;
+import com.fernandogigliotti.finance_manager.repository.UsuarioRepository;
+import com.fernandogigliotti.finance_manager.security.JwtUtil;
 import com.fernandogigliotti.finance_manager.service.DespesaService;
+import org.apache.coyote.Response;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,34 +18,36 @@ import java.util.List;
 public class DespesaController {
 
     private final DespesaService despesaService;
+    private final DespesaRepository despesaRepository;
+    private final UsuarioRepository usuarioRepository;
+    private final JwtUtil jwtUtil;
 
-    public DespesaController(DespesaService despesaService) {
+    public DespesaController(DespesaService despesaService, DespesaRepository despesaRepository, UsuarioRepository usuarioRepository, JwtUtil jwtUtil) {
         this.despesaService = despesaService;
+        this.despesaRepository = despesaRepository;
+        this.usuarioRepository = usuarioRepository;
+        this.jwtUtil = jwtUtil;
     }
 
     @GetMapping
-    public List<Despesa> listarTodas() {
-        return despesaService.listarTodas();
-    }
-
-    @GetMapping("/{id}")
-    public Despesa buscarPorId(@PathVariable Long id) {
-        return despesaService.buscarPorId(id)
-                .orElseThrow(() -> new RuntimeException("Despesa não encontrada"));
+    public ResponseEntity<List<Despesa>> listar() {
+        String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<Despesa> despesas = despesaService.listarPorUsuario(email);
+        return ResponseEntity.ok(despesas);
     }
 
     @PostMapping
-    public Despesa criar(@RequestBody Despesa despesa) {
-        return despesaService.criar(despesa);
+    public ResponseEntity<Despesa> criar(@RequestBody Despesa despesa) {
+        String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Despesa nova = despesaService.salvar(despesa, email);
+        return ResponseEntity.ok(nova);
     }
 
-    @PutMapping("/{id}")
-    public Despesa atualizar(@PathVariable Long id, @RequestBody Despesa despesa) {
-        return despesaService.atualizar(id, despesa);
+    @DeleteMapping("/id")
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
+        String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        despesaService.deletar(id, email);
+        return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping("/{id}")
-    public void deletar(@PathVariable Long id) {
-        despesaService.deletar(id);
-    }
 }
