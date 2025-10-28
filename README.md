@@ -34,10 +34,15 @@ Outros
 ⚙️ Funcionalidades
 
 ✅ Cadastro e login de usuários
+
 ✅ Geração de token JWT para autenticação
+
 ✅ CRUD completo de despesas
+
 ✅ Associação automática das despesas ao usuário logado
+
 ✅ Proteção de rotas e controle de acesso via token
+
 ✅ Listagem de despesas filtradas por usuário
 
 🧰 Como Rodar o Projeto
