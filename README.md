@@ -100,19 +100,3 @@ Acesso às rotas protegidas
 Use o header:
 
 Authorization: Bearer SEU_TOKEN
-
-🎯 Próximos Passos
-
- Implementar criptografia de senha com BCrypt
-
- Adicionar filtros e relatórios de despesas
-
- Deploy da aplicação (Render / Vercel / AWS)
-
- Melhorar UI/UX no frontend
-
-👨‍💻 Autor
-
-Fernando Gigliotti
-LinkedIn
- • GitHub
