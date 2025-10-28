@@ -40,23 +40,6 @@ Outros
 ✅ Proteção de rotas e controle de acesso via token
 ✅ Listagem de despesas filtradas por usuário
 
-🧭 Estrutura do Projeto
-finance-manager/
-├── backend/
-│   ├── src/main/java/com/fernandogigliotti/finance_manager/
-│   │   ├── controller/
-│   │   ├── model/
-│   │   ├── repository/
-│   │   ├── service/
-│   │   └── security/
-│   ├── src/main/resources/
-│   │   ├── application.properties
-│   └── pom.xml
-└── frontend/
-    ├── src/app/
-    ├── package.json
-    └── angular.json
-
 🧰 Como Rodar o Projeto
 🔹 Pré-requisitos
 
