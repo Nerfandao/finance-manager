@@ -1,9 +1,9 @@
-💰 Finance Manager
+# 💰 Finance Manager
 
 O Finance Manager é um sistema de controle financeiro pessoal desenvolvido com Spring Boot (Java) no backend e Angular no frontend.
 O projeto tem como objetivo permitir que cada usuário registre, visualize e gerencie suas despesas de forma simples, segura e organizada.
 
-🚀 Tecnologias Utilizadas
+# 🚀 Tecnologias Utilizadas
 
 Backend
 
