@@ -23,7 +23,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Usuario> buscarPorId(@PathVariable Long id) {
+    public Usuario buscarPorId(@PathVariable Long id) {
         return usuarioService.buscarPorId(id);
     }
 

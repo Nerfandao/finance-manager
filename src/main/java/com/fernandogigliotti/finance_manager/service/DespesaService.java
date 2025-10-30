@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import com.fernandogigliotti.finance_manager.exception.InvalidDataException;
+import com.fernandogigliotti.finance_manager.exception.ResourceNotFoundException;
+
+import java.nio.file.AccessDeniedException;
+
 @Service
 public class DespesaService {
 
@@ -30,45 +35,44 @@ public class DespesaService {
 
     public List<Despesa> listarPorUsuario(String email) {
         Usuario usuario = usuarioRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado"));
         return despesaRepository.findByUsuario(usuario);
     }
 
     public Despesa salvar(Despesa despesa, String email) {
         Usuario usuario = usuarioRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
-        despesa.setUsuario(usuario);
-        return despesaRepository.save(despesa);
-    }
-
-    public Despesa criar(Despesa despesa) {
+                .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado"));
         if (despesa.getValor().floatValue() < 0) {
-            throw new IllegalArgumentException("O valor da despesa não pode ser negativo");
+            throw new InvalidDataException("O valor da despesa não pode ser negativo");
         }
-
+        despesa.setUsuario(usuario);
         return despesaRepository.save(despesa);
     }
 
     public void deletar(Long id, String email) {
         Usuario usuario = usuarioRepository.findByEmail(email)
-                        .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
-        Optional<Despesa> despesa = despesaRepository.findById(id);
+                        .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado"));
+        Despesa despesa = despesaRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Despesa não encontrada"));
 
-        if (despesa.isPresent() && despesa.get().getUsuario().equals(usuario)) {
-            despesaRepository.delete(despesa.get());
-        } else {
-            throw new RuntimeException("Despesa não encontrada ou não pertence ao usuário");
+        if (!despesa.getUsuario().equals(usuario)) {
+            throw new ResourceNotFoundException("A despesa não pertence ao usuário");
         }
+        despesaRepository.delete(despesa);
     }
 
-    public Despesa atualizar(Long id, Despesa despesaAtualizada, String email) {
+    public Despesa atualizar(Long id, Despesa despesaAtualizada, String email) throws ResourceNotFoundException {
         Usuario usuario = usuarioRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado"));
 
         return despesaRepository.findById(id)
                 .map(despesa -> {
                     if (!despesa.getUsuario().equals(usuario)) {
-                        throw new RuntimeException("A despesa não pertence ao usuário");
+                        try {
+                            throw new AccessDeniedException("A despesa não pertence ao usuário");
+                        } catch (AccessDeniedException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
                     despesa.setDescricao(despesaAtualizada.getDescricao());
                     despesa.setValor(despesaAtualizada.getValor());
@@ -76,6 +80,6 @@ public class DespesaService {
                     despesa.setData(despesaAtualizada.getData());
                     return despesaRepository.save(despesa);
                 })
-                .orElseThrow(() -> new RuntimeException("Despesa não encontrada"));
+                .orElseThrow(() -> new ResourceNotFoundException("Despesa não encontrada"));
     }
 }
