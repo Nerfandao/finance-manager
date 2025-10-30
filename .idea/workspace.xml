@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5b30f300-6ca0-4884-8a3c-93cf9ef027eb" name="Changes" comment="Ajustando estrutura do projeto">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/auth/auth-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/auth/auth.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/auth/login/login.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/auth/login/login.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/auth/login/login.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/auth/login/login.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/core/core.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/despesas/despesas-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/despesas/despesas.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/despesas/form/form.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/despesas/form/form.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/despesas/form/form.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/despesas/form/form.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.app.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
+    <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {}
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Nerfandao/finance-manager.git&quot;,
+    &quot;accountId&quot;: &quot;795615c7-1cec-416f-ace5-1cd641d3fcbc&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="33qTT3PCxvIEo0qcH3oGRCstAec" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.finance-manager [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.finance-manager [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.finance-manager [org.springframework.boot:spring-boot-maven-plugin:3.5.6:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.finance-manager [spring-boot:run] (1).executor&quot;: &quot;Debug&quot;,
+    &quot;Maven.finance-manager [spring-boot:run].executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Projetos/finance-manager/pom.xml&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\finance-manager\src\main\java\com\fernandogigliotti\finance_manager" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Maven.finance-manager [spring-boot:run] (1)">
+    <configuration name="finance-manager [spring-boot:run] (1)" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="spring-boot:run" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="finance-manager [spring-boot:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="spring-boot:run" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Maven.finance-manager [spring-boot:run] (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5b30f300-6ca0-4884-8a3c-93cf9ef027eb" name="Changes" comment="" />
+      <created>1760043607182</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760043607182</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Primeiro commit, Base do projeto">
+      <option name="closed" value="true" />
+      <created>1760047266507</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1760047266507</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Primeiro commit, Base do projeto">
+      <option name="closed" value="true" />
+      <created>1760048196709</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1760048196709</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Primeiro commit, Base do projeto">
+      <option name="closed" value="true" />
+      <created>1760048316346</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1760048316346</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Primeiro commit, Base do projeto">
+      <option name="closed" value="true" />
+      <created>1760048973082</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1760048973082</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Primeiro commit, Base do projeto">
+      <option name="closed" value="true" />
+      <created>1760050174862</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1760050174862</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Implementando Endpoints Usuario">
+      <option name="closed" value="true" />
+      <created>1760652275929</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1760652275929</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Adicionado Autenticação com Jwt">
+      <option name="closed" value="true" />
+      <created>1760654632487</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1760654632487</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Ajustamento metodos da Service/Controller com BearerToken">
+      <option name="closed" value="true" />
+      <created>1761257615014</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1761257615014</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Implementando metodo de atualizar despesa">
+      <option name="closed" value="true" />
+      <created>1761861970575</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1761861970575</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Adicionndo BCrypt para senhas">
+      <option name="closed" value="true" />
+      <created>1761862065284</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1761862065284</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Tratando erros e respostas HTTP">
+      <option name="closed" value="true" />
+      <created>1761863240516</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1761863240516</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Melhorando validações">
+      <option name="closed" value="true" />
+      <created>1761863993105</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1761863993105</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Base projeto Frontend">
+      <option name="closed" value="true" />
+      <created>1761864135631</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1761864135631</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Ajustando estrutura do projeto">
+      <option name="closed" value="true" />
+      <created>1761864182899</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1761864182899</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Ajustando estrutura do projeto">
+      <option name="closed" value="true" />
+      <created>1761864212746</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1761864212746</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Primeiro commit, Base do projeto" />
+    <MESSAGE value="Implementando Endpoints Usuario" />
+    <MESSAGE value="Adicionado Autenticação com Jwt" />
+    <MESSAGE value="Ajustamento metodos da Service/Controller com BearerToken" />
+    <MESSAGE value="Implementando metodo de atualizar despesa" />
+    <MESSAGE value="Adicionndo BCrypt para senhas" />
+    <MESSAGE value="Tratando erros e respostas HTTP" />
+    <MESSAGE value="Melhorando validações" />
+    <MESSAGE value="Base projeto Frontend" />
+    <MESSAGE value="Ajustando estrutura do projeto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajustando estrutura do projeto" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/fernandogigliotti/finance_manager/service/UsuarioService.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
