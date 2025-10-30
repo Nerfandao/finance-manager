@@ -61,13 +61,19 @@ public class DespesaService {
         }
     }
 
-    public Despesa atualizar(Long id, Despesa novaDespesa) {
+    public Despesa atualizar(Long id, Despesa despesaAtualizada, String email) {
+        Usuario usuario = usuarioRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+
         return despesaRepository.findById(id)
                 .map(despesa -> {
-                    despesa.setDescricao(novaDespesa.getDescricao());
-                    despesa.setValor(novaDespesa.getValor());
-                    despesa.setCategoria(novaDespesa.getCategoria());
-                    despesa.setData(novaDespesa.getData());
+                    if (!despesa.getUsuario().equals(usuario)) {
+                        throw new RuntimeException("A despesa não pertence ao usuário");
+                    }
+                    despesa.setDescricao(despesaAtualizada.getDescricao());
+                    despesa.setValor(despesaAtualizada.getValor());
+                    despesa.setCategoria(despesaAtualizada.getCategoria());
+                    despesa.setData(despesaAtualizada.getData());
                     return despesaRepository.save(despesa);
                 })
                 .orElseThrow(() -> new RuntimeException("Despesa não encontrada"));

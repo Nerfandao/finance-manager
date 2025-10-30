@@ -43,7 +43,14 @@ public class DespesaController {
         return ResponseEntity.ok(nova);
     }
 
-    @DeleteMapping("/id")
+    @PutMapping("/{id}")
+    public ResponseEntity<Despesa> atualizar(@PathVariable Long id, @RequestBody Despesa despesa) {
+        String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Despesa despesaAtualizada = despesaService.atualizar(id, despesa, email);
+        return ResponseEntity.ok(despesaAtualizada);
+    }
+
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
         String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         despesaService.deletar(id, email);
