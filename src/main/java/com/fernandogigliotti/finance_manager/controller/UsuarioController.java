@@ -2,6 +2,7 @@ package com.fernandogigliotti.finance_manager.controller;
 
 import com.fernandogigliotti.finance_manager.model.Usuario;
 import com.fernandogigliotti.finance_manager.service.UsuarioService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public Usuario criar(@RequestBody Usuario usuario) {
+    public Usuario criar(@Valid @RequestBody Usuario usuario) {
         return usuarioService.salvar(usuario);
     }
 

@@ -6,6 +6,7 @@ import com.fernandogigliotti.finance_manager.repository.DespesaRepository;
 import com.fernandogigliotti.finance_manager.repository.UsuarioRepository;
 import com.fernandogigliotti.finance_manager.security.JwtUtil;
 import com.fernandogigliotti.finance_manager.service.DespesaService;
+import jakarta.validation.Valid;
 import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -37,14 +38,14 @@ public class DespesaController {
     }
 
     @PostMapping
-    public ResponseEntity<Despesa> criar(@RequestBody Despesa despesa) {
+    public ResponseEntity<Despesa> criar(@Valid @RequestBody Despesa despesa) {
         String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Despesa nova = despesaService.salvar(despesa, email);
         return ResponseEntity.ok(nova);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Despesa> atualizar(@PathVariable Long id, @RequestBody Despesa despesa) {
+    public ResponseEntity<Despesa> atualizar(@PathVariable Long id, @Valid @RequestBody Despesa despesa) {
         String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Despesa despesaAtualizada = despesaService.atualizar(id, despesa, email);
         return ResponseEntity.ok(despesaAtualizada);

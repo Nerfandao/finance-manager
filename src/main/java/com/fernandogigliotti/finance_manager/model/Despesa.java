@@ -2,6 +2,9 @@ package com.fernandogigliotti.finance_manager.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -14,8 +17,14 @@ public class Despesa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+        @NotBlank(message = "A descrição é obrigatória")
     private String descricao;
+
+    @NotNull(message = "O valor é obrigatório")
+    @Positive(message = "O valor deve ser positivo")
     private BigDecimal valor;
+
+    @NotNull(message = "A data é obrigatória")
     private LocalDate data;
     private String categoria;
 
