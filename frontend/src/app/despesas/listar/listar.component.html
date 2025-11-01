@@ -1,1 +1,26 @@
-<p>listar works!</p>
+<div class="container mt-4">
+    <h3 class="mb-3">Minhas Despesas</h3>
+
+    <button class="btn btn-success mb-3" (click)="carregarDespesas()">🔄 Atualizar</button>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th>Data</th>
+                <th>Categoria</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let despesa of despesas">
+                <td>{{ despesa.descricao }}</td>
+                <td>R$ {{ despesa.valor | number:'1.2-2' }}</td>
+                <td>{{ despesa.data }}</td>
+                <td>{{ despesa.categoria }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p *ngIf="erro" class="text-danger">{{ erro }}</p>
+</div>
