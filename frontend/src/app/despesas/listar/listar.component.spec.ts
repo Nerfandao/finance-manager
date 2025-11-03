@@ -10,7 +10,7 @@ describe('ListarComponent', () => {
     await TestBed.configureTestingModule({
       imports: [ListarComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ListarComponent);
     component = fixture.componentInstance;
@@ -20,4 +20,5 @@ describe('ListarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

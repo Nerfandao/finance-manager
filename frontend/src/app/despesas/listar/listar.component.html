@@ -1,7 +1,18 @@
 <div class="container mt-4">
-    <h3 class="mb-3">Minhas Despesas</h3>
-
-    <button class="btn btn-success mb-3" (click)="carregarDespesas()">🔄 Atualizar</button>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="mb-0">Minhas Despesas</h3>
+        <div>
+            <button class="btn btn-primary" routerLink="/despesas/adicionar">
+                <i class="bi bi-plus-circle"></i> Nova
+            </button>
+            <button class="btn btn-success ms-2" (click)="carregarDespesas()">
+                <i class="bi bi-arrow-clockwise"></i> Atualizar
+            </button>
+            <button class="btn btn-danger ms-2" (click)="logout()">
+                <i class="bi bi-box-arrow-right"></i> Sair
+            </button>
+        </div>
+    </div>
 
     <table class="table table-striped">
         <thead>
@@ -10,6 +21,7 @@
                 <th>Valor</th>
                 <th>Data</th>
                 <th>Categoria</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -18,6 +30,14 @@
                 <td>R$ {{ despesa.valor | number:'1.2-2' }}</td>
                 <td>{{ despesa.data }}</td>
                 <td>{{ despesa.categoria }}</td>
+                <td>
+                    <button class="btn btn-primary btn-sm me-2" routerLink="/despesas/editar/{{despesa.id}}">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn btn-danger btn-sm" (click)="excluirDespesa(despesa.id)">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>

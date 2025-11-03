@@ -10,8 +10,8 @@ export function authInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn):
         Authorization: `Bearer ${token}`
       }
     });
-    return next.handle(cloned);
+    return next(cloned);
   }
 
-  return next.handle(req);
+  return next(req);
 }

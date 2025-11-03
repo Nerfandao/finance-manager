@@ -33,6 +33,18 @@ public class DespesaService {
         return despesaRepository.findById(id);
     }
 
+    public Despesa buscarPorIdEUsuario(Long id, String email) {
+        Usuario usuario = usuarioRepository.findByEmail(email)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado"));
+        Despesa despesa = despesaRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Despesa não encontrada"));
+
+        if (!despesa.getUsuario().equals(usuario)) {
+            throw new ResourceNotFoundException("A despesa não pertence ao usuário");
+        }
+        return despesa;
+    }
+
     public List<Despesa> listarPorUsuario(String email) {
         Usuario usuario = usuarioRepository.findByEmail(email)
                 .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado"));
@@ -42,8 +54,8 @@ public class DespesaService {
     public Despesa salvar(Despesa despesa, String email) {
         Usuario usuario = usuarioRepository.findByEmail(email)
                 .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado"));
-        if (despesa.getValor().floatValue() < 0) {
-            throw new InvalidDataException("O valor da despesa não pode ser negativo");
+        if (despesa.getValor().floatValue() <= 0) {
+            throw new InvalidDataException("O valor da despesa deve ser positivo");
         }
         despesa.setUsuario(usuario);
         return despesaRepository.save(despesa);
