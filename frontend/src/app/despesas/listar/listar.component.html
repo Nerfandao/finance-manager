@@ -1,46 +1,114 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3 class="mb-0">Minhas Despesas</h3>
+        <h3 class="mb-0 fw-semibold">Minhas Despesas</h3>
         <div>
-            <button class="btn btn-primary" routerLink="/despesas/adicionar">
+            <button class="btn btn-primary" (click)="openModal(null)">
                 <i class="bi bi-plus-circle"></i> Nova
-            </button>
-            <button class="btn btn-success ms-2" (click)="carregarDespesas()">
-                <i class="bi bi-arrow-clockwise"></i> Atualizar
-            </button>
-            <button class="btn btn-danger ms-2" (click)="logout()">
-                <i class="bi bi-box-arrow-right"></i> Sair
             </button>
         </div>
     </div>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Descrição</th>
-                <th>Valor</th>
-                <th>Data</th>
-                <th>Categoria</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let despesa of despesas">
-                <td>{{ despesa.descricao }}</td>
-                <td>R$ {{ despesa.valor | number:'1.2-2' }}</td>
-                <td>{{ despesa.data }}</td>
-                <td>{{ despesa.categoria }}</td>
-                <td>
-                    <button class="btn btn-primary btn-sm me-2" routerLink="/despesas/editar/{{despesa.id}}">
-                        <i class="bi bi-pencil"></i>
-                    </button>
-                    <button class="btn btn-danger btn-sm" (click)="excluirDespesa(despesa.id)">
-                        <i class="bi bi-trash"></i>
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Buscar por descrição ou categoria..."
+            [(ngModel)]="termoBusca" (ngModelChange)="filtrarDespesas()">
+    </div>
 
-    <p *ngIf="erro" class="text-danger">{{ erro }}</p>
+    <div *ngIf="loading" class="text-center my-4">
+        <div class="spinner-border text-primary" role="status"></div>
+    </div>
+
+    <div *ngIf="!loading" class="table-responsive shadow-sm mb-4">
+        <table class="table table-hover align-middle">
+            <thead>
+                <tr>
+                    <th (click)="ordenarPor('descricao')">
+                        Descrição
+                        <i class="bi bi-arrow-up"
+                            [style.visibility]="colunaOrdenacao === 'descricao' && direcaoOrdenacao === 'asc' ? 'visible' : 'hidden'"></i>
+                        <i class="bi bi-arrow-down"
+                            [style.visibility]="colunaOrdenacao === 'descricao' && direcaoOrdenacao === 'desc' ? 'visible' : 'hidden'"></i>
+                    </th>
+                    <th (click)="ordenarPor('valor')">
+                        Valor
+                        <i class="bi bi-arrow-up"
+                            [style.visibility]="colunaOrdenacao === 'valor' && direcaoOrdenacao === 'asc' ? 'visible' : 'hidden'"></i>
+                        <i class="bi bi-arrow-down"
+                            [style.visibility]="colunaOrdenacao === 'valor' && direcaoOrdenacao === 'desc' ? 'visible' : 'hidden'"></i>
+                    </th>
+                    <th (click)="ordenarPor('data')">
+                        Data
+                        <i class="bi bi-arrow-up"
+                            [style.visibility]="colunaOrdenacao === 'data' && direcaoOrdenacao === 'asc' ? 'visible' : 'hidden'"></i>
+                        <i class="bi bi-arrow-down"
+                            [style.visibility]="colunaOrdenacao === 'data' && direcaoOrdenacao === 'desc' ? 'visible' : 'hidden'"></i>
+                    </th>
+                    <th (click)="ordenarPor('categoria')">
+                        Categoria
+                        <i class="bi bi-arrow-up"
+                            [style.visibility]="colunaOrdenacao === 'categoria' && direcaoOrdenacao === 'asc' ? 'visible' : 'hidden'"></i>
+                        <i class="bi bi-arrow-down"
+                            [style.visibility]="colunaOrdenacao === 'categoria' && direcaoOrdenacao === 'desc' ? 'visible' : 'hidden'"></i>
+                    </th>
+                    <th class="text-center">Ações</th>
+                </tr>
+            </thead>
+            <tbody class="align-middle">
+                <tr *ngFor="let despesa of despesasFiltradas">
+                    <td>{{ despesa.descricao }}</td>
+                    <td class="fw-semibold text-danger">R$ {{ despesa.valor | number:'1.2-2' }}</td>
+                    <td>{{ despesa.data | date:'dd/MM/yyyy' }}</td>
+                    <td>
+                        <span class="badge bg-secondary">{{ despesa.categoria }}</span>
+                    </td>
+                    <td class="text-center">
+                        <button class="btn btn-primary btn-sm me-2" (click)="openModal(despesa.id)">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm" (click)="excluirDespesa(despesa.id)">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-6">
+            <div class="card text-center shadow-sm border-0 bg-light">
+                <div class="card-body">
+                    <h6 class="text-muted mb-1">Total de Despesas</h6>
+                    <h4 class="text-danger">R$ {{ totalDespesas | number:'1.2-2' }}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-center shadow-sm border-0 bg-light">
+                <div class="card-body">
+                    <h6 class="text-muted mb-1">Última Despesa</h6>
+                    <h4 class="text-info">{{ ultimaDespesa | date:'dd/MM/yyyy' }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p *ngIf="erro" class="text-danger text-center mt-3">{{ erro }}</p>
+</div>
+
+<div class="modal" tabindex="-1" [style.display]="showModal ? 'block' : 'none'">
+  <div class="modal-dialog" appDraggable [handle]="modalHeader">
+    <div class="modal-content">
+      <div #modalHeader class="modal-header">
+        <h4 class="modal-title">{{ selectedDespesaId ? 'Editar Despesa' : 'Adicionar Despesa' }}</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <app-form-modal [despesaId]="selectedDespesaId" (formClosed)="closeModal()"></app-form-modal>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="save()" [disabled]="isSaveDisabled()">{{ selectedDespesaId ? 'Atualizar' : 'Salvar' }}</button>
+      </div>
+    </div>
+  </div>
 </div>

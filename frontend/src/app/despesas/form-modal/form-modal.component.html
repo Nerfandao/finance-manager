@@ -1,0 +1,21 @@
+<form (ngSubmit)="salvar()" #despesaForm="ngForm">
+    <div class="mb-3">
+      <label for="descricao" class="form-label">Descrição <span class="text-danger">*</span></label>
+      <input type="text" id="descricao" [(ngModel)]="descricao" name="descricao" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="valor" class="form-label">Valor (R$) <span class="text-danger">*</span></label>
+      <input type="text" id="valor" [(ngModel)]="valorDisplay" (blur)="formatValor()" (focus)="unformatValor()" (ngModelChange)="onValorChange($event)" name="valor" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="data" class="form-label">Data <span class="text-danger">*</span></label>
+      <input type="date" id="data" [(ngModel)]="data" name="data" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="categoria" class="form-label">Categoria <span class="text-danger">*</span></label>
+      <input type="text" id="categoria" [(ngModel)]="categoria" name="categoria" class="form-control" required />
+    </div>
+  </form>

@@ -4,18 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b30f300-6ca0-4884-8a3c-93cf9ef027eb" name="Changes" comment="Adicionando Interceptor para token">
+    <list default="true" id="5b30f300-6ca0-4884-8a3c-93cf9ef027eb" name="Changes" comment="Adicionando funcionalidades de Editar e excluir">
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/core/auth.guard.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/fernandogigliotti/finance_manager/controller/DespesaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/fernandogigliotti/finance_manager/controller/DespesaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/fernandogigliotti/finance_manager/service/DespesaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/fernandogigliotti/finance_manager/service/DespesaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/auth.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/auth.interceptor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/despesas/form/form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/despesas/form/form.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/despesas/form/form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/despesas/form/form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/despesas/form/form.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/despesas/form/form.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
     </list>
@@ -360,7 +359,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762022549776</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Adicionando funcionalidades de Editar e excluir">
+      <option name="closed" value="true" />
+      <created>1762210096753</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1762210096753</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -391,7 +398,8 @@
     <MESSAGE value="Adicionando base das telas, home, login, despesas" />
     <MESSAGE value="Criando tela de login, e integrando Front com o back" />
     <MESSAGE value="Adicionando Interceptor para token" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionando Interceptor para token" />
+    <MESSAGE value="Adicionando funcionalidades de Editar e excluir" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adicionando funcionalidades de Editar e excluir" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

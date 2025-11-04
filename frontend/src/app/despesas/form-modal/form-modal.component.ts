@@ -1,44 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 declare var Swal: any;
 
 @Component({
-  selector: 'app-adicionar',
+  selector: 'app-form-modal',
   standalone: true,
-  templateUrl: './form.component.html',
+  templateUrl: './form-modal.component.html',
   imports: [
     FormsModule,
     CommonModule
   ],
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form-modal.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormModalComponent implements OnInit {
+  @Input() despesaId: number | null = null;
+  @Output() formClosed = new EventEmitter<void>();
+
   descricao: string = '';
   valor: number | null = null;
   valorDisplay: string = '';
+  data: string = '';
+  categoria: string = '';
 
-  despesaId: number | null = null;
   isEditMode: boolean = false;
 
-  constructor(
-    private http: HttpClient,
-    private router: Router,
-    private route: ActivatedRoute
-  ) { }
+  @ViewChild('despesaForm') despesaForm: any;
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const id = params.get('id');
-      if (id) {
-        this.isEditMode = true;
-        this.despesaId = +id;
-        this.carregarDespesa(this.despesaId);
-      }
-    });
+    if (this.despesaId) {
+      this.isEditMode = true;
+      this.carregarDespesa(this.despesaId);
+    }
   }
 
   onValorChange(event: any) {
@@ -99,6 +96,14 @@ export class FormComponent implements OnInit {
       Authorization: `Bearer ${token}`
     });
 
+    Swal.fire({
+      title: 'Salvando...',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
     let request;
 
     if (this.isEditMode && this.despesaId) {
@@ -109,6 +114,7 @@ export class FormComponent implements OnInit {
 
     request.subscribe({
       next: () => {
+        Swal.close();
         Swal.fire({
           icon: 'success',
           title: 'Sucesso!',
@@ -116,17 +122,31 @@ export class FormComponent implements OnInit {
           timer: 1500,
           showConfirmButton: false
         }).then(() => {
-          this.router.navigate(['/despesas']);
+          this.formClosed.emit();
         });
       },
       error: (err) => {
+        Swal.close();
         console.error(err);
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: `Erro ao ${this.isEditMode ? 'atualizar' : 'adicionar'} a despesa.`
-        });
+        if (err.status === 400 && err.error) {
+          let errorMessages = '';
+          for (const key in err.error) {
+            if (err.error.hasOwnProperty(key)) {
+              errorMessages += `${err.error[key]}<br>`;
+            }
+          }
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            html: errorMessages
+          });
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: `Erro ao ${this.isEditMode ? 'atualizar' : 'adicionar'} a despesa.`
+          });
+        }
       }
     });
   }
-}

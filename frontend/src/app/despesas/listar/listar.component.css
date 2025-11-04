@@ -1,0 +1,11 @@
+th {
+  cursor: pointer;
+}
+
+th:hover {
+  background-color: #f2f2f2;
+}
+
+.modal-dialog.dragging {
+  cursor: move;
+}
