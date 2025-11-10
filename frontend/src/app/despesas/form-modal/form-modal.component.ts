@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild, OnChanges, SimpleChanges } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -15,9 +15,9 @@ declare var Swal: any;
   ],
   styleUrls: ['./form-modal.component.css']
 })
-export class FormModalComponent implements OnInit {
+export class FormModalComponent implements OnChanges {
   @Input() despesaId: number | null = null;
-  @Output() formClosed = new EventEmitter<void>();
+  @Output() formClosed = new EventEmitter<boolean>();
 
   descricao: string = '';
   valor: number | null = null;
@@ -32,9 +32,29 @@ export class FormModalComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    if (this.despesaId) {
-      this.isEditMode = true;
-      this.carregarDespesa(this.despesaId);
+    this.data = new Date().toISOString().split('T')[0];
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['despesaId']) {
+      if (this.despesaId) {
+        this.isEditMode = true;
+        this.carregarDespesa(this.despesaId);
+      } else {
+        this.isEditMode = false;
+        this.resetForm();
+      }
+    }
+  }
+
+  resetForm(): void {
+    this.descricao = '';
+    this.valor = null;
+    this.valorDisplay = '';
+    this.data = '';
+    this.categoria = '';
+    if (this.despesaForm) {
+      this.despesaForm.reset();
     }
   }
 
@@ -122,7 +142,10 @@ export class FormModalComponent implements OnInit {
           timer: 1500,
           showConfirmButton: false
         }).then(() => {
-          this.formClosed.emit();
+          this.formClosed.emit(true);
+          if (!this.isEditMode) {
+            this.resetForm();
+          }
         });
       },
       error: (err) => {
@@ -150,3 +173,4 @@ export class FormModalComponent implements OnInit {
       }
     });
   }
+}          

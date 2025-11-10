@@ -10,6 +10,8 @@ export class DraggableDirective {
   private isDragging = false;
   private initialX = 0;
   private initialY = 0;
+  private startX = 0;
+  private startY = 0;
 
   constructor(private el: ElementRef, private renderer: Renderer2) { }
 

@@ -4,19 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b30f300-6ca0-4884-8a3c-93cf9ef027eb" name="Changes" comment="Adicionando funcionalidades de Editar e excluir">
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/core/auth.guard.ts" afterDir="false" />
+    <list default="true" id="5b30f300-6ca0-4884-8a3c-93cf9ef027eb" name="Changes" comment="Melhorias Visuais e UX">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/fernandogigliotti/finance_manager/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/fernandogigliotti/finance_manager/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/fernandogigliotti/finance_manager/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/fernandogigliotti/finance_manager/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/frontend.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/despesas/form/form.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/despesas/form/form.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/draggable.directive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/draggable.directive.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/despesas/form-modal/form-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/despesas/form-modal/form-modal.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,15 +77,17 @@
     "Maven.finance-manager [spring-boot:run] (1).executor": "Debug",
     "Maven.finance-manager [spring-boot:run] (2).executor": "Debug",
     "Maven.finance-manager [spring-boot:run].executor": "Debug",
+    "Maven.finance-manager.executor": "Run",
+    "Remote JVM Debug.Conectar ao Backend.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.google.cloudcode.ide_session_index": "20251103_0000",
+    "com.google.cloudcode.ide_session_index": "20251106_0001",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/Projetos/finance-manager/frontend",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
@@ -97,7 +99,7 @@
       <recent name="E:\Projetos\finance-manager\frontend\src\app\components" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.finance-manager [spring-boot:run] (2)">
+  <component name="RunManager" selected="Remote JVM Debug.Conectar ao Backend">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,36 +141,6 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
-    <configuration name="finance-manager [spring-boot:run] (2)" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="cmdOptions" />
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list>
-                <option value="spring-boot:run" />
-              </list>
-            </option>
-            <option name="multimoduleDir" />
-            <option name="pomFileName" value="pom.xml" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="projectsCmdOptionValues">
-              <list />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$/backend" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-      <method v="2" />
-    </configuration>
     <configuration name="finance-manager [spring-boot:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -199,9 +171,73 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <configuration name="finance-manager" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings">
+          <MavenRunnerSettings>
+            <option name="delegateBuildToMaven" value="false" />
+            <option name="environmentProperties">
+              <map />
+            </option>
+            <option name="jreName" value="#USE_PROJECT_JDK" />
+            <option name="mavenProperties">
+              <map />
+            </option>
+            <option name="passParentEnv" value="true" />
+            <option name="runMavenInBackground" value="true" />
+            <option name="skipTests" value="true" />
+            <option name="vmOptions" value="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005" />
+          </MavenRunnerSettings>
+        </option>
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="spring-boot:run" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/backend" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="Conectar ao Backend" type="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <option name="AUTO_RESTART" value="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="5005" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Maven.finance-manager [spring-boot:run]" />
+      <item itemvalue="Maven.finance-manager [spring-boot:run] (1)" />
+      <item itemvalue="Maven.finance-manager" />
+      <item itemvalue="Remote JVM Debug.Conectar ao Backend" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Maven.finance-manager [spring-boot:run] (2)" />
+        <item itemvalue="Maven.finance-manager" />
         <item itemvalue="Maven.finance-manager [spring-boot:run] (1)" />
       </list>
     </recent_temporary>
@@ -367,7 +403,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762210096753</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Melhorias Visuais e UX">
+      <option name="closed" value="true" />
+      <created>1762214836479</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1762214836479</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -399,7 +443,8 @@
     <MESSAGE value="Criando tela de login, e integrando Front com o back" />
     <MESSAGE value="Adicionando Interceptor para token" />
     <MESSAGE value="Adicionando funcionalidades de Editar e excluir" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionando funcionalidades de Editar e excluir" />
+    <MESSAGE value="Melhorias Visuais e UX" />
+    <option name="LAST_COMMIT_MESSAGE" value="Melhorias Visuais e UX" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -408,6 +453,16 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/fernandogigliotti/finance_manager/service/UsuarioService.java</url>
           <line>35</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/src/main/java/com/fernandogigliotti/finance_manager/controller/AuthController.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/src/main/java/com/fernandogigliotti/finance_manager/controller/AuthController.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

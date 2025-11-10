@@ -100,13 +100,13 @@
     <div class="modal-content">
       <div #modalHeader class="modal-header">
         <h4 class="modal-title">{{ selectedDespesaId ? 'Editar Despesa' : 'Adicionar Despesa' }}</h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+        <button type="button" class="btn-close" aria-label="Close" (click)="handleModalClose(false)"></button>
       </div>
       <div class="modal-body">
-        <app-form-modal [despesaId]="selectedDespesaId" (formClosed)="closeModal()"></app-form-modal>
+        <app-form-modal [despesaId]="selectedDespesaId" (formClosed)="handleModalClose($event)"></app-form-modal>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancelar</button>
+        <button type="button" class="btn btn-secondary" (click)="handleModalClose(false)">Cancelar</button>
         <button type="button" class="btn btn-primary" (click)="save()" [disabled]="isSaveDisabled()">{{ selectedDespesaId ? 'Atualizar' : 'Salvar' }}</button>
       </div>
     </div>

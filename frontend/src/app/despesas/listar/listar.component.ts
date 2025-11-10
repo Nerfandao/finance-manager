@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CommonModule, DecimalPipe } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 declare var Swal: any;
 
@@ -14,7 +14,7 @@ import { DraggableDirective } from '../../core/draggable.directive';
 @Component({
   selector: 'app-listar',
   standalone: true,
-  imports: [CommonModule, DecimalPipe, RouterLink, FormsModule, FormModalComponent, DraggableDirective],
+  imports: [CommonModule, DecimalPipe, FormsModule, FormModalComponent, DraggableDirective],
   templateUrl: './listar.component.html',
   styleUrls: ['./listar.component.css']
 })
@@ -36,6 +36,8 @@ export class ListarComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
+    this.colunaOrdenacao = 'data';
+    this.direcaoOrdenacao = 'desc';
     this.carregarDespesas();
   }
 
@@ -44,10 +46,12 @@ export class ListarComponent implements OnInit {
     this.showModal = true;
   }
 
-  closeModal() {
+  handleModalClose(shouldReload: boolean) {
     this.showModal = false;
     this.selectedDespesaId = null;
-    this.carregarDespesas();
+    if (shouldReload) {
+      this.carregarDespesas();
+    }
   }
 
   save() {
@@ -74,11 +78,10 @@ export class ListarComponent implements OnInit {
     this.http.get<any[]>('http://localhost:8080/despesas', { headers }).subscribe({
       next: (data) => {
         this.despesas = data;
-        this.ordenarPor('data'); // Initial sort
-        this.despesasFiltradas = this.despesas;
+        this.aplicarOrdenacao();
+        this.filtrarDespesas();
         this.erro = '';
         this.loading = false;
-        this.calcularResumo();
       },
       error: (err) => {
         console.error(err);
@@ -96,9 +99,14 @@ export class ListarComponent implements OnInit {
       this.direcaoOrdenacao = 'asc';
     }
 
+    this.aplicarOrdenacao();
+    this.filtrarDespesas();
+  }
+
+  private aplicarOrdenacao() {
     this.despesas.sort((a, b) => {
-      const valorA = a[coluna];
-      const valorB = b[coluna];
+      const valorA = a[this.colunaOrdenacao];
+      const valorB = b[this.colunaOrdenacao];
       const direcao = this.direcaoOrdenacao === 'asc' ? 1 : -1;
 
       if (typeof valorA === 'string') {
@@ -107,8 +115,6 @@ export class ListarComponent implements OnInit {
         return (valorA - valorB) * direcao;
       }
     });
-
-    this.filtrarDespesas();
   }
 
   filtrarDespesas() {

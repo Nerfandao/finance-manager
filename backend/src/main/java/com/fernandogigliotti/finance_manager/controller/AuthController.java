@@ -1,8 +1,10 @@
 package com.fernandogigliotti.finance_manager.controller;
 
-import com.fernandogigliotti.finance_manager.model.Usuario;
+import com.fernandogigliotti.finance_manager.dto.LoginRequest;
 import com.fernandogigliotti.finance_manager.security.JwtUtil;
 import com.fernandogigliotti.finance_manager.service.UsuarioService;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,10 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import com.fernandogigliotti.finance_manager.dto.LoginRequest;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 @RestController
 @RequestMapping("/auth")
