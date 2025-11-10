@@ -8,9 +8,28 @@
         </div>
     </div>
 
-    <div class="mb-3">
-        <input type="text" class="form-control" placeholder="Buscar por descrição ou categoria..."
-            [(ngModel)]="termoBusca" (ngModelChange)="filtrarDespesas()">
+    <div class="row g-3 mb-3">
+        <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Buscar por descrição..."
+                [(ngModel)]="termoBusca" (ngModelChange)="filtrarDespesas()">
+        </div>
+        <div class="col-md-2">
+            <select class="form-select" [(ngModel)]="categoriaSelecionada" (ngModelChange)="filtrarDespesas()">
+                <option value="">Todas as Categorias</option>
+                <option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <select class="form-select" [(ngModel)]="mesSelecionado" (ngModelChange)="filtrarDespesas()">
+                <option value="">Todos os Meses</option>
+                <option *ngFor="let mes of meses" [value]="mes.valor">{{ mes.nome }}</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <input type="number" class="form-control" placeholder="Ano"
+                [(ngModel)]="anoSelecionado" (ngModelChange)="filtrarDespesas()"
+                min="1000" max="9999" (input)="validarAno($event)">
+        </div>
     </div>
 
     <div *ngIf="loading" class="text-center my-4">

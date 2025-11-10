@@ -3,13 +3,27 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
 }
 
-input, textarea {
-  -webkit-user-select: text; /* Safari */
-  -ms-user-select: text; /* IE 10 and IE 11 */
-  user-select: text; /* Standard syntax */
+input,
+textarea {
+  -webkit-user-select: text;
+  /* Safari */
+  -ms-user-select: text;
+  /* IE 10 and IE 11 */
+  user-select: text;
+  /* Standard syntax */
+}
+
+background {
+  background-color: #f8f9fa;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }

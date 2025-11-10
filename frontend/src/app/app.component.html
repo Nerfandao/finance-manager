@@ -7,7 +7,7 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isLoggedIn()">
           <a class="nav-link text-danger" (click)="logout()">
             <i class="bi bi-box-arrow-right"></i> Sair
           </a>

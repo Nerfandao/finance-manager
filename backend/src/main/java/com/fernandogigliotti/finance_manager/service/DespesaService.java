@@ -51,6 +51,12 @@ public class DespesaService {
         return despesaRepository.findByUsuario(usuario);
     }
 
+    public List<String> buscarCategoriasPorUsuario(String email) {
+        Usuario usuario = usuarioRepository.findByEmail(email)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado"));
+        return despesaRepository.findDistinctCategoriasByUsuario(usuario);
+    }
+
     public Despesa salvar(Despesa despesa, String email) {
         Usuario usuario = usuarioRepository.findByEmail(email)
                 .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado"));

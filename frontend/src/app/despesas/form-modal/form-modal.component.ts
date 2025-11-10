@@ -51,10 +51,11 @@ export class FormModalComponent implements OnChanges {
     this.descricao = '';
     this.valor = null;
     this.valorDisplay = '';
-    this.data = '';
+    this.data = new Date().toISOString().split('T')[0];
     this.categoria = '';
     if (this.despesaForm) {
-      this.despesaForm.reset();
+      this.despesaForm.form.markAsPristine();
+      this.despesaForm.form.markAsUntouched();
     }
   }
 

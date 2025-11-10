@@ -31,6 +31,18 @@ export class ListarComponent implements OnInit {
   showModal: boolean = false;
   selectedDespesaId: number | null = null;
 
+  // Filtros
+  categorias: string[] = [];
+  meses = [
+    { valor: 1, nome: 'Janeiro' }, { valor: 2, nome: 'Fevereiro' }, { valor: 3, nome: 'Março' },
+    { valor: 4, nome: 'Abril' }, { valor: 5, nome: 'Maio' }, { valor: 6, nome: 'Junho' },
+    { valor: 7, nome: 'Julho' }, { valor: 8, nome: 'Agosto' }, { valor: 9, nome: 'Setembro' },
+    { valor: 10, nome: 'Outubro' }, { valor: 11, nome: 'Novembro' }, { valor: 12, nome: 'Dezembro' }
+  ];
+  categoriaSelecionada: string = '';
+  mesSelecionado: number | string = '';
+  anoSelecionado: number | string = '';
+
   @ViewChild(FormModalComponent) formModal: FormModalComponent | undefined;
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -39,6 +51,7 @@ export class ListarComponent implements OnInit {
     this.colunaOrdenacao = 'data';
     this.direcaoOrdenacao = 'desc';
     this.carregarDespesas();
+    this.carregarCategorias();
   }
 
   openModal(id: number | null) {
@@ -51,6 +64,7 @@ export class ListarComponent implements OnInit {
     this.selectedDespesaId = null;
     if (shouldReload) {
       this.carregarDespesas();
+      this.carregarCategorias();
     }
   }
 
@@ -91,6 +105,44 @@ export class ListarComponent implements OnInit {
     });
   }
 
+  carregarCategorias() {
+    const token = localStorage.getItem('token');
+    if (!token) return;
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+
+    this.http.get<string[]>('http://localhost:8080/despesas/categorias', { headers }).subscribe({
+      next: (data) => {
+        this.categorias = data;
+      },
+      error: (err) => {
+        console.error('Erro ao carregar categorias', err);
+      }
+    });
+  }
+
+  validarAno(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    let value = inputElement.value;
+
+    // Remove non-digit characters
+    value = value.replace(/\D/g, '');
+
+    // Limit to 4 digits
+    if (value.length > 4) {
+      value = value.substring(0, 4);
+    }
+
+    // Update the input value and model
+    inputElement.value = value;
+    this.anoSelecionado = value;
+
+    // Trigger filtering
+    this.filtrarDespesas();
+  }
+
   ordenarPor(coluna: string) {
     if (this.colunaOrdenacao === coluna) {
       this.direcaoOrdenacao = this.direcaoOrdenacao === 'asc' ? 'desc' : 'asc';
@@ -118,14 +170,35 @@ export class ListarComponent implements OnInit {
   }
 
   filtrarDespesas() {
+    let despesasFiltradas = this.despesas;
+
     if (this.termoBusca) {
-      this.despesasFiltradas = this.despesas.filter(despesa =>
-        despesa.descricao.toLowerCase().includes(this.termoBusca.toLowerCase()) ||
-        despesa.categoria.toLowerCase().includes(this.termoBusca.toLowerCase())
+      despesasFiltradas = despesasFiltradas.filter(despesa =>
+        despesa.descricao.toLowerCase().includes(this.termoBusca.toLowerCase())
       );
-    } else {
-      this.despesasFiltradas = this.despesas;
     }
+
+    if (this.categoriaSelecionada) {
+      despesasFiltradas = despesasFiltradas.filter(despesa =>
+        despesa.categoria === this.categoriaSelecionada
+      );
+    }
+
+    if (this.mesSelecionado) {
+      despesasFiltradas = despesasFiltradas.filter(despesa => {
+        const mesDespesa = new Date(despesa.data).getMonth() + 1;
+        return mesDespesa === Number(this.mesSelecionado);
+      });
+    }
+
+    if (this.anoSelecionado) {
+      despesasFiltradas = despesasFiltradas.filter(despesa => {
+        const anoDespesa = new Date(despesa.data).getFullYear();
+        return anoDespesa === Number(this.anoSelecionado);
+      });
+    }
+
+    this.despesasFiltradas = despesasFiltradas;
     this.calcularResumo();
   }
 

@@ -23,19 +23,20 @@ import { FormsModule } from '@angular/forms';
   constructor(private http: HttpClient, private router: Router) { }
 
   login() {
+    if (!this.email || !this.senha) {
+      this.erro = 'Por favor, preencha todos os campos.';
+      return;
+    }
+
     const body = {
       email: this.email, senha: this.senha
     }
-
-      ;
 
     this.http.post('http://localhost:8080/auth/login', body).subscribe({
       next: (res: any) => {
         localStorage.setItem('token', res.token);
         this.router.navigate(['/despesas']);
-      }
-
-      ,
+      },
       error: () => {
         this.erro = 'E-mail ou senha inválidos';
       }

@@ -41,4 +41,8 @@ export class RegistroComponent {
       }
     });
   }
+
+  goToLogin() {
+    this.router.navigate(['/login']);
+  }
 }

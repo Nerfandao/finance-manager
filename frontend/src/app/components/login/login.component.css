@@ -1,0 +1,10 @@
+.create-account-link {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.create-account-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}

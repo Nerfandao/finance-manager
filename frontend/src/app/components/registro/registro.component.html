@@ -21,4 +21,9 @@
     </form>
 
     <p *ngIf="erro" class="text-danger mt-3 text-center">{{ erro }}</p>
+
+    <div class="text-center mt-3">
+        <span>Já tem uma conta? </span>
+        <a (click)="goToLogin()" class="login-link" style="text-decoration: none; cursor: pointer;">Entrar</a>
+    </div>
 </div>

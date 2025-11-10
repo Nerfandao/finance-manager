@@ -36,6 +36,9 @@ public class UsuarioService {
         if (usuario.getEmail() == null || usuario.getEmail().isEmpty()) {
             throw new InvalidDataException("Email não pode ser vazio");
         }
+        if (usuarioRepository.findByEmail(usuario.getEmail()).isPresent()) {
+            throw new InvalidDataException("Usuário com este e-mail já existe.");
+        }
         usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
         return usuarioRepository.save(usuario);
     }

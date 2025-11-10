@@ -37,6 +37,13 @@ public class DespesaController {
         return ResponseEntity.ok(despesas);
     }
 
+    @GetMapping("/categorias")
+    public ResponseEntity<List<String>> listarCategorias() {
+        String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<String> categorias = despesaService.buscarCategoriasPorUsuario(email);
+        return ResponseEntity.ok(categorias);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Despesa> buscarPorId(@PathVariable Long id) {
         String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
