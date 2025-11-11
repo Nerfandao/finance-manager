@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b30f300-6ca0-4884-8a3c-93cf9ef027eb" name="Changes" comment="Melhorias Visuais e UX">
+    <list default="true" id="5b30f300-6ca0-4884-8a3c-93cf9ef027eb" name="Changes" comment="Documentando API">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/fernandogigliotti/finance_manager/config/OpenApiConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/fernandogigliotti/finance_manager/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/fernandogigliotti/finance_manager/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/fernandogigliotti/finance_manager/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/fernandogigliotti/finance_manager/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/draggable.directive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/draggable.directive.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/despesas/form-modal/form-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/despesas/form-modal/form-modal.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/despesas/listar/listar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,10 +69,10 @@
     "Maven.finance-manager [spring-boot:run] (1).executor": "Debug",
     "Maven.finance-manager [spring-boot:run] (2).executor": "Debug",
     "Maven.finance-manager [spring-boot:run].executor": "Debug",
-    "Maven.finance-manager.executor": "Run",
+    "Maven.finance-manager.executor": "Debug",
     "Remote JVM Debug.Conectar ao Backend.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.google.cloudcode.ide_session_index": "20251106_0001",
+    "com.google.cloudcode.ide_session_index": "20251111_0001",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
@@ -99,7 +91,7 @@
       <recent name="E:\Projetos\finance-manager\frontend\src\app\components" />
     </key>
   </component>
-  <component name="RunManager" selected="Remote JVM Debug.Conectar ao Backend">
+  <component name="RunManager" selected="Maven.finance-manager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -411,7 +403,23 @@
       <option name="project" value="LOCAL" />
       <updated>1762214836479</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Alterando Icone, Adicionando para criar conta, Ajustes CORS">
+      <option name="closed" value="true" />
+      <created>1762814238083</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1762814238083</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Melhorias na tela, Filtros novos na listagem de despesa.">
+      <option name="closed" value="true" />
+      <created>1762816684610</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1762816684610</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -444,7 +452,10 @@
     <MESSAGE value="Adicionando Interceptor para token" />
     <MESSAGE value="Adicionando funcionalidades de Editar e excluir" />
     <MESSAGE value="Melhorias Visuais e UX" />
-    <option name="LAST_COMMIT_MESSAGE" value="Melhorias Visuais e UX" />
+    <MESSAGE value="Alterando Icone, Adicionando para criar conta, Ajustes CORS" />
+    <MESSAGE value="Melhorias na tela, Filtros novos na listagem de despesa." />
+    <MESSAGE value="Documentando API" />
+    <option name="LAST_COMMIT_MESSAGE" value="Documentando API" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -463,6 +474,11 @@
           <url>file://$PROJECT_DIR$/backend/src/main/java/com/fernandogigliotti/finance_manager/controller/AuthController.java</url>
           <line>31</line>
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/src/main/java/com/fernandogigliotti/finance_manager/service/UsuarioService.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
